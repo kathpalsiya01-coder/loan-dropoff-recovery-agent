@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/LangGraph-Agent%20Orchestration-1C3C3C" alt="LangGraph"/>
   <img src="https://img.shields.io/badge/Groq-llama--3.3--70b-orange" alt="Groq"/>
   <img src="https://img.shields.io/badge/FAISS-Vector%20Search-005571" alt="FAISS"/>
-  <img src="https://img.shields.io/badge/Streamlit-UI-FF4B4B?logo=streamlit&logoColor=white" alt="Streamlit"/>
+  <img src="https://img.shields.io/badge/Streamlit-UI-FF4B4B?logo=streamlit&logoColor=white" alt="Streamlit"/><https://kathpalsiya01-coder-loan-dropoff-recovery-agent-app-x6tlfd.streamlit.app/>
   <img src="https://img.shields.io/badge/status-working%20demo-brightgreen" alt="Status"/>
   <img src="https://img.shields.io/badge/license-MIT-lightgrey" alt="License"/>
 </p>
@@ -90,7 +90,7 @@ different `user_message` in state.
 > Add a screenshot or GIF of the running app here once deployed —
 > e.g. `![demo](assets/demo.gif)`
 
-**Try it live:** *(add your Streamlit Community Cloud link here)*
+**Try it live:** *https://kathpalsiya01-coder-loan-dropoff-recovery-agent-app-x6tlfd.streamlit.app/*
 
 ---
 
