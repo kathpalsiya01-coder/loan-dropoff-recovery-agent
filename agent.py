@@ -11,7 +11,8 @@ Pipeline (LangGraph StateGraph):
   3. generate_message -> Groq LLM writes a personalized re-engagement message
   4. handle_objection -> answers follow-up user questions using the same RAG context
 
-Requires: GROQ_API_KEY environment variable.
+Requires: GROQ_API_KEY environment variable (set locally via .env, or via
+Streamlit Cloud's Secrets manager when deployed).
 """
 
 import os
@@ -19,6 +20,17 @@ from typing import TypedDict, List, Optional
 
 from dotenv import load_dotenv
 load_dotenv()
+
+import streamlit as st
+
+# Streamlit Cloud doesn't read .env files -- secrets are injected via st.secrets.
+# This makes sure GROQ_API_KEY is available as an env var either way, so the
+# rest of the code (ChatGroq, which reads from the env var) doesn't need to change.
+if not os.getenv("GROQ_API_KEY"):
+    try:
+        os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+    except Exception:
+        pass  # will fail loudly later if the key truly isn't set anywhere
 
 from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -97,7 +109,7 @@ def retrieve_context(state: AgentState) -> AgentState:
 def generate_message(state: AgentState) -> AgentState:
     """Groq LLM turn: writes either the initial re-engagement message
     or a direct answer to the user's follow-up question."""
-    llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0.4)
+    llm = ChatGroq(model="openai/gpt-oss-120b", temperature=0.4)
     context = "\n\n".join(state["retrieved_context"])
 
     if state.get("user_message"):
