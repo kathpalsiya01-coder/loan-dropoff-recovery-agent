@@ -87,9 +87,6 @@ different `user_message` in state.
 
 ## 🎬 Demo
 
-> Add a screenshot or GIF of the running app here once deployed —
-> e.g. `![demo](assets/demo.gif)`
-
 **Try it live:** *https://kathpalsiya01-coder-loan-dropoff-recovery-agent-app-x6tlfd.streamlit.app/*
 
 ---
